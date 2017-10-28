@@ -18,9 +18,13 @@
   font-size: 1.5em;
 }
 
-.App-intro {
+.App-container {
   font-size: large;
+  margin-left: 10%;
+  margin-right: 10%;
 }
+
+.
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
