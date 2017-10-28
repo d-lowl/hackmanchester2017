@@ -15,7 +15,7 @@ class AssholePicker extends Component {
     var number = this.state.number;
     number++;
     if(number > this.props.max)
-      number = this.props.max;
+      number = this.props.min;
     console.log(number);
     this.setState((oldState) => {
       return {
@@ -25,22 +25,28 @@ class AssholePicker extends Component {
     })
   }
 
-  decrement() {
-    var number = this.state.number;
-    number--;
-    if(number < this.props.min)
-      number = this.props.min;
-    this.setState((oldState) => {
-      return {
-        ...oldState,
-        number
-      }
-    })
-  }
-
   onStart() {
-    // console.log("qweqwe");
+    console.log("qweqwe");
+    var intervalId;
     // setTimeout(this.increment,1000)
+    if(!this.state.intervalId){
+      intervalId = setInterval(this.increment.bind(this), 500);
+      this.setState((oldState) => {
+        return{
+          ...oldState,
+          intervalId
+        }
+      });
+    }
+    else {
+      clearInterval(this.state.intervalId);
+      this.setState((oldState) => {
+        return{
+          ...oldState,
+          intervalId: null
+        }
+      });
+    }
   }
 
   render() {
@@ -53,7 +59,7 @@ class AssholePicker extends Component {
           value={this.state.number}
           step={1}
           disabled={true}/>
-        <FlatButton label="START" primary={true} onClick={this.onStart}/>
+        <FlatButton label={!this.state.intervalId ? "START" : "STOP"} primary={true} onClick={this.onStart.bind(this)}/>
       </div>
     );
   }
