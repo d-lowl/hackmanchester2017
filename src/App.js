@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import AssholePicker from './AssholePicker.js';
+import AssholeYearPicker from './AssholeYearPicker.js';
+import AssholeMonthPicker from './AssholeMonthPicker.js';
+import AssholeDayPicker from './AssholeDayPicker.js';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      userMonth: 1
+    }
+  }
+
+  onMonthChange(userMonth){
+    this.setState(
+      (oldState) => {
+        return{
+          ...oldState,
+          userMonth
+        }
+      }
+    );
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,7 +34,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className="App-container">
-          <AssholePicker min={2007} max={2019}/>
+          <AssholeYearPicker min={2007} max={2019}/>
+          <AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>
+          <AssholeDayPicker min={1} max={31} userMonth={this.state.userMonth} />
         </div>
       </div>
     );

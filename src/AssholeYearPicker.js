@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Slider from 'material-ui/Slider';
 import FlatButton from 'material-ui/FlatButton';
 
-class AssholePicker extends Component {
+class AssholeYearPicker extends Component {
 
   constructor(props) {
     super(props);
@@ -66,4 +66,4 @@ class AssholePicker extends Component {
 
 }
 
-export default AssholePicker;
+export default AssholeYearPicker;
