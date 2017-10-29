@@ -61,9 +61,9 @@ class AssholeHelper extends Component {
         </Card>
 
         <Sound
-        url="https://www.myinstants.com/media/sounds/greenscreen-wow.mp3"
+        url="/icq-message.wav"
         playStatus={Sound.status.PLAYING}
-        playFromPosition={100 /* in milliseconds */}
+        playFromPosition={0 /* in milliseconds */}
         />
       </div>
     ); // return
