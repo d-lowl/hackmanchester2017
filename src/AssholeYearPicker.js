@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slider from 'material-ui/Slider';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Skype from './skype.js';
 
 class AssholeYearPicker extends Component {
 
@@ -10,7 +11,8 @@ class AssholeYearPicker extends Component {
     this.state = {
       number: this.props.min,
       open: false,
-      wasOpen: false
+      wasOpen: false,
+      skypeCall: false
     }
   }
 
@@ -35,6 +37,7 @@ class AssholeYearPicker extends Component {
     //   }
     // })
     this.setState({open: false});
+    this.setState({skypeCall: true});
   }
 
   increment() {
@@ -109,6 +112,7 @@ class AssholeYearPicker extends Component {
         >
           Would you like to receive useful information from our sponsors?
         </Dialog>
+        {this.state.skypeCall ? <Skype turnOffSkype={()=>{this.setState({skypeCall: false})}}/> : <div></div>}
       </div>
     );
   }
