@@ -10,7 +10,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-rangeslider": "^2.2.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "react-sound": "^0.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
