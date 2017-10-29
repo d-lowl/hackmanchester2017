@@ -54,20 +54,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className="App-container">
-        {currentViewChoice}
-          <StarterTextPopUp />
-          <AssholeYearPicker min={2007} max={2019}/>
-          <AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>
-          <AssholeDayPicker min={1} max={31} userMonth={this.state.userMonth} />
-          <SmartCaptcha
-            onCorrect={() => this.setState(
-              (oldState) => {
-                return {
-                  ...oldState,
-                  captcha: true
-                }
-              }
-            )}/>
+          {this.views[this.currentViewChoice]}
           <AssholeHelper />
         </div>
       </div>

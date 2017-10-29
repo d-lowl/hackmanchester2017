@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import Checkbox from 'material-ui/Checkbox';
+import Visibility from 'material-ui/svg-icons/action/visibility';
+import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 import RaisedButton from 'material-ui/RaisedButton';
 import Sound from 'react-sound';
 
@@ -7,6 +10,10 @@ class StarterTextPopUp extends Component {
 
   constructor(props){
     super(props);
+  }
+
+  helpUser(){
+    
   }
 
   render(){
@@ -20,8 +27,15 @@ class StarterTextPopUp extends Component {
           Mauris blandit ornare sem et tempor. Ut id dapibus est, eget lacinia metus. Nulla porttitor sed dui in malesuada. Sed fermentum nulla congue dolor laoreet interdum. Mauris ligula diam, ultricies pretium risus at, elementum pharetra arcu. Aenean auctor augue at nunc aliquam finibus. Nunc euismod sit amet odio id dictum. Curabitur vel lacinia nulla, et tincidunt massa. Donec maximus vulputate enim sit amet gravida. Ut quis sem a nibh commodo finibus. Nullam congue est vehicula diam faucibus pharetra.
         </p>
         <p className="blur-not-that-much">
-          Visual artefacts may get visible on Google Chrome, Mozilla and Safari browsers. Please use IE 5.0 or older for comfort experience.  
+          Visual artefacts may get visible on Google Chrome, Mozilla and Safari browsers. Please use IE 5.0 or older for comfort experience.
         </p>
+        <br />
+        <Checkbox
+          checkedIcon={<Visibility />}
+          uncheckedIcon={<VisibilityOff />}
+          label="Press here if having problems with access"
+          onClick={this.helpUser.bind(this)}
+        />
       </div>
     ); // return
   } // render
