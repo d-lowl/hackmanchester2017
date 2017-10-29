@@ -4,18 +4,41 @@ import Checkbox from 'material-ui/Checkbox';
 import Visibility from 'material-ui/svg-icons/action/visibility';
 import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 import RaisedButton from 'material-ui/RaisedButton';
+import LinearProgress from 'material-ui/LinearProgress';
 import Sound from 'react-sound';
 
 class StarterTextPopUp extends Component {
 
   constructor(props){
     super(props);
-    this.state = {wasClear: false}
+    this.state = {wasClear: false, completed: 0, fakeButtonPressed: false, fakeButtonExists: true}
+  }
+
+  buttonClicked(){
+    this.setState({fakeButtonPressed: true});
   }
 
   helpUser(){
     var wasClear = this.state.wasClear;
     this.setState({wasClear: !wasClear});
+  }
+
+  componentDidMount() {
+    this.timer = setTimeout(() => this.progress(5), 1000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
+  progress(completed) {
+    if (completed > 100) {
+      this.setState({completed: 100, fakeButtonPressed: false, fakeButtonExists: false});
+    } else {
+      this.setState({completed});
+      const diff = Math.random() * 10;
+      this.timer = setTimeout(() => this.progress(completed + diff), 1000);
+    }
   }
 
   render(){
@@ -40,6 +63,12 @@ class StarterTextPopUp extends Component {
         />
         <br />
         {this.state.wasClear ? <p style={{color: "red"}}>Your browser is not supported. To complete the form check the instructions above. Tip: you can highlight the text to see it/</p> : <div></div>}
+        <br />
+        <br />
+        <br />
+        {this.state.fakeButtonPressed ? <LinearProgress mode="determinate" value={this.state.completed} /> : <div></div>}
+        <br />
+        {this.state.fakeButtonExists ? <img src="./submit.png" max-width="110" height="50" onClick={this.buttonClicked.bind(this)}/> : <div></div>}
       </div>
     ); // return
   } // render
