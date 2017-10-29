@@ -5,6 +5,7 @@ import AssholeMonthPicker from './AssholeMonthPicker.js';
 import AssholeDayPicker from './AssholeDayPicker.js';
 import SmartCaptcha from './SmartCaptcha.js';
 import AssholeHelper from './AssholeHelper.js';
+import StarterTextPopUp from './StarterTextPopUp';
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,22 @@ class App extends Component {
       userMonth: 1,
       captcha: false
     }
+    this.currentViewChoice = 0;
+    this.views=[
+      (<StarterTextPopUp />),
+      (<AssholeYearPicker min={2007} max={2019}/>),
+      (<AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>),
+      (<AssholeDayPicker min={1} max={31} userMonth={this.state.userMonth} />),
+      (<SmartCaptcha
+        onCorrect={() => this.setState(
+          (oldState) => {
+            return {
+              ...oldState,
+              captcha: true
+            }
+          }
+        )}/>)
+    ];
   }
 
   onMonthChange(userMonth){
@@ -37,6 +54,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className="App-container">
+        {currentViewChoice}
+          <StarterTextPopUp />
           <AssholeYearPicker min={2007} max={2019}/>
           <AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>
           <AssholeDayPicker min={1} max={31} userMonth={this.state.userMonth} />

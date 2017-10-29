@@ -12,6 +12,31 @@
 .helper-left{
   left: 0;
 }
+
+.beautiful-button
+{
+  font-family: Times New Roman, serif;
+   font-size: xx-large;
+   font-style: oblique;
+   font-weight: lighter;
+   color: lime;
+   background: url("https://wcerfgba.github.io/AESTHETIC.css/img/pink.png");
+   background-size: 30px 30px;
+   text-shadow:  red 1px 1px 0px, red -1px -1px 0px, red -1px 1px 0px, red 1px -1px 0px;
+   width: 150px;
+   height: 50px;
+}
+
+.blur-text {
+    text-shadow: #000 5px 0 10px, #000 -5px 0 10px;
+    color: transparent;
+}
+
+.blur-not-that-much {
+    text-shadow: #000 0px 0 2px;
+    color: transparent;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
