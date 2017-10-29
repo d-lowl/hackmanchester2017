@@ -45,9 +45,10 @@ class StarterTextPopUp extends Component {
     return(
       <div>
         <h2>Please read the instruction before proceding</h2>
-        <p className="blur-text">
+        {/*<p className="blur-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam pulvinar euismod. Duis tempor libero id lacus semper, at varius nunc pulvinar. Nunc pellentesque viverra eros at facilisis. Sed fermentum eros sollicitudin sodales commodo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In volutpat lectus elementum malesuada aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique urna lobortis tellus porta, eget malesuada lacus scelerisque. Dont forget to press second word of second paragraph to go to next page.
-        </p>
+        </p>*/}
+        <img src="/screenshot.png" width="100%"/>
         <p className="blur-text">
           Please <span onClick={this.props.onNextView}>click</span> here to go further. Ut id dapibus est, eget lacinia metus. Nulla porttitor sed dui in malesuada. Sed fermentum nulla congue dolor laoreet interdum. Mauris ligula diam, ultricies pretium risus at, elementum pharetra arcu. Aenean auctor augue at nunc aliquam finibus. Nunc euismod sit amet odio id dictum. Curabitur vel lacinia nulla, et tincidunt massa. Donec maximus vulputate enim sit amet gravida. Ut quis sem a nibh commodo finibus. Nullam congue est vehicula diam faucibus pharetra.
         </p>

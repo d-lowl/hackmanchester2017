@@ -5,6 +5,11 @@ import Checkbox from 'material-ui/Checkbox';
 
 class EmailWithNewsletters extends Component {
 
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+
   constructor(props)
   {
     super(props);
@@ -49,7 +54,7 @@ class EmailWithNewsletters extends Component {
           onCheck={this.onCheck.bind(this)}
         />
         {partners_checkboxes}
-        <FlatButton label="Next" disabled={this.state.text === ""} primary={true} onClick={this.props.onNextView}/>
+        <FlatButton label="Next" disabled={!this.validateEmail(this.state.text)} primary={true} onClick={this.props.onNextView}/>
       </div>
     );
   }

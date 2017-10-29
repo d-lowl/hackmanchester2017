@@ -63,8 +63,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src="https://image.flaticon.com/icons/svg/174/174685.svg" className="App-logo" alt="logo" />
+          <h1 className="App-title">Ultimate Customer Service Solutions</h1>
         </header>
         <div className="App-container">
           {this.views[this.state.currentViewChoice]}

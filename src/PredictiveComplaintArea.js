@@ -4,7 +4,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import './App.css';
 
-const rate = 0.5
+const rate = 0.35
 
 class PredictiveComplaintArea extends Component {
 
