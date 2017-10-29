@@ -78,7 +78,7 @@ class AssholeMonthPicker extends Component {
     }
 
     return(
-      <div>
+      <div style={{marginTop: "10px", marginBottom: "20px"}}>
         <FlatButton label={buttonLabel} primary={true} onClick={this.incrementQuestionIndex.bind(this)} />
         {this.state.questionIndex != 0 ? this.questions[this.state.questionIndex] : <div></div>}
       </div>

@@ -95,14 +95,15 @@ class AssholeYearPicker extends Component {
     ];
 
     return (
-      <div>
-        {this.state.number}
+      <div style={{marginTop: "50px", marginBottom: "40px"}}>
         <Slider
+          sliderStyle={{marginBottom: "24px"}}
           min={this.props.min}
           max={this.props.max}
           value={this.state.number}
           step={1}
           disabled={true}/>
+        {this.state.number}
         <FlatButton label={!this.state.intervalId ? "START" : "STOP"} primary={true} onClick={this.onStart.bind(this)}/>
         <Dialog
           title="User agreement"

@@ -50,8 +50,8 @@ class AssholeDayPicker extends Component {
 
   render(){
     return(
-      <div>
-        {this.state.number}
+      <div style={{marginTop: "10px", marginBottom: "20px"}}>
+        Day: {this.state.number}
         <FlatButton label="-" primary={true} onClick={this.decrement.bind(this)}/>
         <FlatButton label="+" primary={true} onClick={this.increment.bind(this)}/>
       </div>

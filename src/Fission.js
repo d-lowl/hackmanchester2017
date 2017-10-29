@@ -23,7 +23,7 @@ class Fission extends Component {
       var interval = setInterval(() => {
         this.setState({loading: false, before: false});
         clearInterval(interval);
-      },5000);
+      },10000);
     }
   }
 

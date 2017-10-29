@@ -4,7 +4,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import './App.css';
 
-const rate = 0.7
+const rate = 0.5
 
 class PredictiveComplaintArea extends Component {
 
@@ -60,6 +60,7 @@ class PredictiveComplaintArea extends Component {
     ];
     return (
       <div>
+        <h2>What are you not happy about??!</h2>
         <TextField
           hintText="Enter your complaint here"
           multiLine={true}

@@ -24,7 +24,8 @@ class App extends Component {
     this.views=[
       (<StarterTextPopUp onNextView={this.onNextView.bind(this)}/>),
       (<div>
-         <AssholeYearPicker min={2007} max={2019}/>
+         <h2>Pick the date that you are not happy about</h2>
+         <AssholeYearPicker min={1950} max={2019}/>
          <AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>
          <AssholeDayPicker min={1} max={31} userMonth={this.state.userMonth} />
          <FlatButton label="Next "primary={true} onClick={this.onNextView.bind(this)}/>
