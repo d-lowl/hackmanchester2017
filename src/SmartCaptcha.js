@@ -37,7 +37,7 @@ class SmartCaptcha extends Component {
       list[i] = order[x];
     }
     return {
-      correct: minIndex,
+      correctIndex: minIndex,
       list
     }
   }
@@ -76,6 +76,7 @@ class SmartCaptcha extends Component {
   }
 
   render() {
+    console.log(this.state.correctIndex)
     var picks = [];
     for(var v in this.state.list){
       picks.push(
@@ -97,7 +98,7 @@ class SmartCaptcha extends Component {
           name="captcha"
           onChange={
             (event,value) => {
-              if(this.state.correct != value){
+              if(this.state.correctIndex != value){
                 this.resetCaptcha();
               } else {
                 this.onCorrect();
