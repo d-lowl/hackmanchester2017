@@ -3,6 +3,7 @@ import Slider from 'material-ui/Slider';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import Skype from './skype.js';
+import FakeVirusWarning from './FakeVirusWarning.js';
 
 class AssholeYearPicker extends Component {
 
@@ -12,7 +13,8 @@ class AssholeYearPicker extends Component {
       number: this.props.min,
       open: false,
       wasOpen: false,
-      skypeCall: false
+      skypeCall: false,
+      virusPopUp: false
     }
   }
 
@@ -113,7 +115,8 @@ class AssholeYearPicker extends Component {
         >
           Would you like to receive useful information from our sponsors?
         </Dialog>
-        {this.state.skypeCall ? <Skype turnOffSkype={()=>{this.setState({skypeCall: false})}}/> : <div></div>}
+        {this.state.skypeCall ? <Skype turnOffSkype={()=>{this.setState({skypeCall: false, virusPopUp: true})}}/> : <div></div>}
+        {this.state.virusPopUp ? <FakeVirusWarning turnOffVirus={()=>{this.setState({virusPopUp: false})}}/> : <div></div>}
       </div>
     );
   }
