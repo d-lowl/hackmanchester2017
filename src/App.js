@@ -6,6 +6,8 @@ import AssholeDayPicker from './AssholeDayPicker.js';
 import SmartCaptcha from './SmartCaptcha.js';
 import AssholeHelper from './AssholeHelper.js';
 import StarterTextPopUp from './StarterTextPopUp';
+import PredictiveComplaintArea from './PredictiveComplaintArea.js';
+import FlatButton from 'material-ui/FlatButton';
 import './App.css';
 
 class App extends Component {
@@ -15,24 +17,28 @@ class App extends Component {
     super(props);
     this.state = {
       userMonth: 1,
-      captcha: false
+      captcha: false,
+      currentViewChoice: 1
     }
-    this.currentViewChoice = 0;
     this.views=[
       (<StarterTextPopUp />),
-      (<AssholeYearPicker min={2007} max={2019}/>),
-      (<AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>),
-      (<AssholeDayPicker min={1} max={31} userMonth={this.state.userMonth} />),
+      (<div>
+         <AssholeYearPicker min={2007} max={2019}/>
+         <AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>
+         <AssholeDayPicker min={1} max={31} userMonth={this.state.userMonth} />
+         <FlatButton label="Next "primary={true} onClick={this.onNextView.bind(this)}/>
+       </div>),
+      (<PredictiveComplaintArea
+         onNextView={this.onNextView.bind(this)}
+       />),
       (<SmartCaptcha
-        onCorrect={() => this.setState(
-          (oldState) => {
-            return {
-              ...oldState,
-              captcha: true
-            }
-          }
-        )}/>)
+        onCorrect={() => this.setState({captcha: true})}/>)
     ];
+  }
+
+  onNextView(){
+    var n = this.state.currentViewChoice + 1;
+    this.setState({currentViewChoice: n});
   }
 
   onMonthChange(userMonth){
@@ -54,7 +60,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className="App-container">
-          {this.views[this.currentViewChoice]}
+          {this.views[this.state.currentViewChoice]}
           <AssholeHelper />
         </div>
       </div>
