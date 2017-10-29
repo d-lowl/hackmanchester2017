@@ -7,6 +7,7 @@ import SmartCaptcha from './SmartCaptcha.js';
 import AssholeHelper from './AssholeHelper.js';
 import StarterTextPopUp from './StarterTextPopUp';
 import Fission from './Fission';
+import EmailWithNewsletters from './EmailWithNewsletters';
 import PredictiveComplaintArea from './PredictiveComplaintArea.js';
 import FlatButton from 'material-ui/FlatButton';
 import './App.css';
@@ -23,6 +24,7 @@ class App extends Component {
     }
     this.views=[
       (<StarterTextPopUp onNextView={this.onNextView.bind(this)}/>),
+      (<EmailWithNewsletters onNextView={this.onNextView.bind(this)}/>),
       (<div>
          <h2>Pick the date that you are not happy about</h2>
          <AssholeYearPicker min={1950} max={2019}/>
