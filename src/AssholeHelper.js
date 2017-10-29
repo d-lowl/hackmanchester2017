@@ -8,10 +8,10 @@ class AssholeHelper extends Component {
   constructor(props){
     super(props);
     this.state = {
-      left: false
+      left: false,
+      sound: Sound.status.PLAYING
     }
     this.hidePopUp = this.hidePopUp.bind(this);
-    this.showPopUp = this.showPopUp.bind(this);
   }
 
   hidePopUp(){
@@ -20,18 +20,8 @@ class AssholeHelper extends Component {
       (oldState) => {
         return{
           ...oldState,
+          sound: Sound.status.PLAYING,
           left: !oldState.left
-        }
-      }
-    );
-  }
-
-  showPopUp(){
-    this.setState(
-      (oldState) => {
-        return{
-          ...oldState,
-          hidden: false
         }
       }
     );
@@ -41,6 +31,7 @@ class AssholeHelper extends Component {
 // http://www.freesfx.co.uk/rx2/mp3s/5/16914_1461333028.mp3
 // https://www.myinstants.com/media/sounds/greenscreen-wow.mp3
   render(){
+    console.log(this.state);
     return(
       <div>
         <Card className={"helper " + (this.state.left ? "helper-left" : "")} onMouseEnter={this.hidePopUp}>
@@ -62,7 +53,15 @@ class AssholeHelper extends Component {
 
         <Sound
         url="/icq-message.wav"
-        playStatus={Sound.status.PLAYING}
+        playStatus={this.state.sound}
+        onFinishedPlaying={() => {
+          this.setState((oldState) => {
+            return {
+              ...oldState,
+              sound: Sound.status.STOPPED
+            }
+          })
+        }}
         playFromPosition={0 /* in milliseconds */}
         />
       </div>
