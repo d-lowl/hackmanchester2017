@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import FlatButton from 'material-ui/FlatButton';
 import order from './mean_prior_order.json';
 import './SmartCaptcha.css';
 
@@ -89,7 +90,7 @@ class SmartCaptcha extends Component {
     }
     return (
       <div>
-        <p>Pick product which is reordered more frequently to confirm that you are a human</p>
+        <h2>Pick product which is reordered more frequently to confirm that you are a human</h2>
         <p className="wrong">{this.state.wrong ? "That was wrong" : ""}</p>
         <p className="correct">{this.state.correct ? "You WERE right!" : ""}</p>
         <RadioButtonGroup
@@ -107,6 +108,7 @@ class SmartCaptcha extends Component {
         >
           {picks}
         </RadioButtonGroup>
+        <FlatButton label="Next" disabled={!this.state.correct} primary={true} onClick={this.props.onNextView}/>
       </div>
     );
   }

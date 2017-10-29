@@ -6,6 +6,7 @@ import AssholeDayPicker from './AssholeDayPicker.js';
 import SmartCaptcha from './SmartCaptcha.js';
 import AssholeHelper from './AssholeHelper.js';
 import StarterTextPopUp from './StarterTextPopUp';
+import Fission from './Fission';
 import PredictiveComplaintArea from './PredictiveComplaintArea.js';
 import FlatButton from 'material-ui/FlatButton';
 import './App.css';
@@ -32,7 +33,10 @@ class App extends Component {
          onNextView={this.onNextView.bind(this)}
        />),
       (<SmartCaptcha
-        onCorrect={() => this.setState({captcha: true})}/>)
+        onCorrect={() => this.setState({captcha: true})}
+        onNextView={this.onNextView.bind(this)}/>),
+      (<Fission onNextView={this.onNextView.bind(this)}/>),
+      (<h2>Congratulations, your complaint was successfully submited!</h2>)
     ];
   }
 

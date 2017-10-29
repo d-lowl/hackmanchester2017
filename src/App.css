@@ -11,6 +11,7 @@
 
 .helper-left{
   left: 0;
+  transform: scale(-1, 1);
 }
 
 .beautiful-button
