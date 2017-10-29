@@ -18,10 +18,10 @@ class App extends Component {
     this.state = {
       userMonth: 1,
       captcha: false,
-      currentViewChoice: 1
+      currentViewChoice: 0
     }
     this.views=[
-      (<StarterTextPopUp />),
+      (<StarterTextPopUp onNextView={this.onNextView.bind(this)}/>),
       (<div>
          <AssholeYearPicker min={2007} max={2019}/>
          <AssholeMonthPicker min={1} max={12} userMonth={this.state.userMonth} onChange={this.onMonthChange.bind(this)}/>
