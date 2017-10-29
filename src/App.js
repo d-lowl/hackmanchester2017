@@ -20,7 +20,7 @@ class App extends Component {
     this.state = {
       userMonth: 1,
       captcha: false,
-      currentViewChoice: 4
+      currentViewChoice: 0
     }
     this.views=[
       (<StarterTextPopUp onNextView={this.onNextView.bind(this)}/>),
