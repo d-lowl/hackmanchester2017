@@ -4,6 +4,7 @@ import AssholeYearPicker from './AssholeYearPicker.js';
 import AssholeMonthPicker from './AssholeMonthPicker.js';
 import AssholeDayPicker from './AssholeDayPicker.js';
 import SmartCaptcha from './SmartCaptcha.js';
+import AssholeHelper from './AssholeHelper.js';
 import './App.css';
 
 class App extends Component {
@@ -48,6 +49,7 @@ class App extends Component {
                 }
               }
             )}/>
+          <AssholeHelper />
         </div>
       </div>
     );
